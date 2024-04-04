@@ -1,3 +1,7 @@
+import '/resources/pages/profile_page.dart';
+import '/resources/pages/store_page.dart';
+import '/resources/pages/categories_page.dart';
+import '/resources/pages/main_page.dart';
 import '/resources/pages/login_page.dart';
 import '/resources/pages/home_page.dart';
 import '/resources/pages/splash_page.dart';
@@ -29,4 +33,8 @@ appRouter() => nyRoutes((router) {
           initialRoute: true);
       router.route(HomePage.path, (context) => HomePage());
       router.route(LoginPage.path, (context) => LoginPage(), authPage: true);
-    });
+      router.route(MainPage.path, (context) => MainPage());
+  router.route(CategoriesPage.path, (context) => CategoriesPage());
+  router.route(StorePage.path, (context) => StorePage());
+  router.route(ProfilePage.path, (context) => ProfilePage());
+});

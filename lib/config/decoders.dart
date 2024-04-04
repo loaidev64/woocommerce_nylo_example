@@ -1,3 +1,6 @@
+import '/app/controllers/profile_controller.dart';
+import '/app/controllers/store_controller.dart';
+import '/app/controllers/categories_controller.dart';
 import '/app/controllers/login_controller.dart';
 import '/app/controllers/home_controller.dart';
 import '/app/models/user.dart';
@@ -47,5 +50,11 @@ final Map<Type, dynamic> controllers = {
 
 
   LoginController: () => LoginController(),
+
+  CategoriesController: () => CategoriesController(),
+
+  StoreController: () => StoreController(),
+
+  ProfileController: () => ProfileController(),
 };
 

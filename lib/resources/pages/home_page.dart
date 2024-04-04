@@ -1,34 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/resources/widgets/products_grid_view_widget.dart';
 import 'package:nylo_framework/nylo_framework.dart';
+import '/app/controllers/home_controller.dart';
 
-class HomePage extends NyStatefulWidget {
+class HomePage extends NyStatefulWidget<HomeController> {
   static const path = '/home';
 
   HomePage({super.key}) : super(path, child: _HomePageState());
 }
 
 class _HomePageState extends NyState<HomePage> {
-  int _currentIndex = 0;
-
-  final List<Widget> _pages = [
-    Container(
-      child: Text("Tab 1"),
-    ),
-    Container(
-      child: Text("Tab 2"),
-    ),
-    Container(
-      child: Text("Tab 3"),
-    ),
-    Container(
-      child: Text("Tab 4"),
-    ),
-  ];
+  /// [HomeController] controller
+  HomeController get controller => widget.controller;
 
   @override
   init() async {}
 
-  /// Use boot if you need to load data before the [view] is rendered.
+  /// Use boot if you need to load data before the view is rendered.
   // @override
   // boot() async {
   //
@@ -36,34 +24,17 @@ class _HomePageState extends NyState<HomePage> {
 
   @override
   Widget view(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-      ),
-      body: _pages[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Tab 1',
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          //TODO:: add categories list view
+          //TODO:: add latest products grid 4 products only and it could be customizable
+          ProductsGridView(
+            data: controller.getLatestProducts,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Tab 2',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Tab 3',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Tab 4',
+          //TODO:: add sale products grid 4 products only and it could be customizable
+          ProductsGridView(
+            data: controller.getSaleProducts,
           ),
         ],
       ),

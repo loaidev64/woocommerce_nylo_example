@@ -34,17 +34,17 @@ class _LoginPageState extends NyState<LoginPage> {
             child: Column(
               children: [
                 Logo(),
-                Text('email'.tr()),
+                Text('Email'.tr()),
                 TextFormFieldWidget(
                   onSaved: (email) => controller.email = email,
                 ),
-                Text('password'.tr()),
+                Text('Password'.tr()),
                 TextFormFieldWidget(
                   onSaved: (password) => controller.password = password,
                 ),
                 ButtonWidget(
                   onPressed: controller.login,
-                  text: 'login'.tr(),
+                  text: 'Login'.tr(),
                 ),
               ],
             ),

@@ -1,34 +1,25 @@
-import 'package:flutter/material.dart';
-import '/resources/widgets/logo_widget.dart';
-import 'package:nylo_framework/nylo_framework.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'controller.dart';
+import '/app/controllers/controller.dart';
+import 'package:flutter/widgets.dart';
 
 class HomeController extends Controller {
-
-  onTapDocumentation() async {
-    await launchUrl(Uri.parse("https://nylo.dev/docs"));
+  @override
+  construct(BuildContext context) {
+    super.construct(context);
   }
 
-  onTapGithub() async {
-    await launchUrl(Uri.parse("https://github.com/nylo-core/nylo"));
+  Future<List> getLatestProducts() async {
+    //TODO:: get latest products from api
+    // getEnv(
+    // 'WOOCOMMERCE_NUMBER_OF_LATEST_PRODUCTS_SHOWN_IN_HOME_PAGE')
+
+    return [];
   }
 
-  onTapChangeLog() async {
-    await launchUrl(Uri.parse(
-        "https://github.com/nylo-core/nylo/releases"));
-  }
+  Future<List> getSaleProducts() async {
+    //TODO:: get sale products from api
+    // getEnv(
+    // 'WOOCOMMERCE_NUMBER_OF_SALE_PRODUCTS_SHOWN_IN_HOME_PAGE')
 
-  onTapYouTube() async {
-    await launchUrl(Uri.parse("https://m.youtube.com/@nylo_dev"));
-  }
-
-  showAbout() {
-    showAboutDialog(
-      context: context!,
-      applicationName: getEnv('APP_NAME'),
-      applicationIcon: const Logo(),
-      applicationVersion: nyloVersion,
-    );
+    return [];
   }
 }

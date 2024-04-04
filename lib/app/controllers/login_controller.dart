@@ -1,4 +1,4 @@
-import 'package:flutter_app/resources/pages/home_page.dart';
+import 'package:flutter_app/resources/pages/main_page.dart';
 import 'package:flutter_app/resources/widgets/button_widget.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
@@ -23,9 +23,9 @@ class LoginController extends Controller {
         'password': [password, 'required'],
       },
       onSuccess: () {
-        updateState(ButtonWidget.state, data: false);
         //TODO:: make the actual login here
-        routeTo(HomePage.path);
+        updateState(ButtonWidget.state, data: false);
+        routeTo(MainPage.path);
       },
       onFailure: (exception) {
         updateState(ButtonWidget.state, data: false);
