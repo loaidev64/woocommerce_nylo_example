@@ -1,4 +1,6 @@
+import '/resources/pages/login_page.dart';
 import '/resources/pages/home_page.dart';
+import '/resources/pages/splash_page.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
 /* App Router
@@ -10,17 +12,21 @@ import 'package:nylo_framework/nylo_framework.dart';
 |-------------------------------------------------------------------------- */
 
 appRouter() => nyRoutes((router) {
-  router.route(HomePage.path, (context) => HomePage(), initialRoute: true);
-  // Add your routes here
+      // router.route(HomePage.path, (context) => HomePage(), initialRoute: true);
+      // Add your routes here
 
-  // router.route(NewPage.path, (context) => NewPage(), transition: PageTransitionType.fade);
+      // router.route(NewPage.path, (context) => NewPage(), transition: PageTransitionType.fade);
 
-  // Example using grouped routes
-  // router.group(() => {
-  //   "route_guards": [AuthRouteGuard()],
-  //   "prefix": "/dashboard"
-  // }, (router) {
-  //
-  //   router.route(AccountPage.path, (context) => AccountPage());
-  // });
-});
+      // Example using grouped routes
+      // router.group(() => {
+      //   "route_guards": [AuthRouteGuard()],
+      //   "prefix": "/dashboard"
+      // }, (router) {
+      //
+      //   router.route(AccountPage.path, (context) => AccountPage());
+      // });
+      router.route(SplashPage.path, (context) => SplashPage(),
+          initialRoute: true);
+      router.route(HomePage.path, (context) => HomePage());
+      router.route(LoginPage.path, (context) => LoginPage(), authPage: true);
+    });
